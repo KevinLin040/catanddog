@@ -1,0 +1,2 @@
+model_checkpoint_path: "myNASNetMobile.ckpt"
+all_model_checkpoint_paths: "myNASNetMobile.ckpt"
