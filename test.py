@@ -7,10 +7,7 @@ import cv2
 #載入模型
 model = tf.keras.models.load_model('./model/mymodel121.h5')
 #訯定分類碼
-class_indices = {'Cat':0,'Dog':1}
-#v，k交換
-inverse_dict = dict((val, key) for key, val in class_indices.items()) 
-
+inverse_dict = {0:'Cat',1:'Dog'}
 #載入圖片並處理
 img = cv2.imread('32.jpg')
 img2 = img.copy()
@@ -25,7 +22,7 @@ predict_class = np.argmax(result)
 txt = str(inverse_dict[int(predict_class)]) + ' ' +str(round((result[predict_class]*100),1)) + '%'
 print(txt)
 img = cv2.putText(img,txt,(10,30),cv2.FONT_HERSHEY_COMPLEX,1,(0,0,255),2)
-#显示图片
+#顯示圖片
 cv2.imshow('img',img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
